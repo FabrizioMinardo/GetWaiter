@@ -1,8 +1,8 @@
-# UGAB - Restaurante Armenio 🍽️
+# SISTEMA DE GESTION DE RESTAURANTE 🍽️
 
 ## 📌 Descripción
 
-Este es un sistema web diseñado para el Restaurante Armenio UGAB que permite a los clientes solicitar atención de un mozo, pedir la cuenta y dejar una opinión fácilmente desde su mesa a través de un botón interactivo. El cliente escanea el codigo QR de la mesa y lo redirige a la pagina del restaurant para realizar su solicitud.
+Este es un sistema web diseñado para un Restaurante que permite a los clientes solicitar atención de un mozo, pedir la cuenta y dejar una opinión fácilmente desde su mesa a través de un botón interactivo. El cliente escanea el codigo QR de la mesa y lo redirige a la pagina del restaurant para realizar su solicitud.
 
 ### Sitio en funcionamiento: https://fabriziominardo.github.io/ugab/
 
@@ -30,19 +30,6 @@ Este es un sistema web diseñado para el Restaurante Armenio UGAB que permite a 
 
 - Bot de Telegram para recibir y gestionar las solicitudes.
 
-### 📜 Instalación y Configuración
-
-- Clona este repositorio:
-
-```git
-git clone https://github.com/FabrizioMinardo/ugab.git
-```
-- Abre el proyecto en tu navegador ejecutando el archivo index.html.
-
-- Configura tu bot de Telegram (si deseas usar otro token o chat ID):
-
-- Modifica las constantes TELEGRAM_TOKEN y TELEGRAM_CHAT_ID en Script.js con tu información.
-
 ### 🎯 Cómo Funciona
 
 - Carga la página en un navegador.
@@ -53,22 +40,10 @@ git clone https://github.com/FabrizioMinardo/ugab.git
 
 - El personal recibirá la notificación y atenderá la solicitud.
 
-### 📌 Personalización
-
-Si deseas cambiar los mensajes de estado, edita Script.js en las siguientes líneas:
-
-```javascript
-const messages = {
-    callWaiter: "🛎️ Mesa {table} necesita un mozo.",
-    requestBill: "💰 Mesa {table} solicita la cuenta."
-};
-```
-Puedes modificar el texto según lo que necesites.
-
 ### 📄 Licencia
 
 Este proyecto está bajo la Licencia MIT, lo que significa que puedes usarlo, modificarlo y distribuirlo libremente.
 
 -------------------------------------------------------------------------------------------------------------------
 
-Desarrollado por Fabrizio Minardo para UGAB - Restaurante Armenio.
+Desarrollado por Fabrizio Minardo.
