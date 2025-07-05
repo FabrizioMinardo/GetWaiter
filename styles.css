@@ -1,18 +1,15 @@
 /* General */
-/* Estilo global para el cuerpo del documento */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    color: #e8e8e8;
-    background: linear-gradient(135deg, #000040, #00006E);
+    color: #333333; /* texto principal */
+    background-color: #FFFFFF; /* fondo blanco */
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Asegura que el cuerpo ocupe toda la altura de la ventana */
+    min-height: 100vh;
 }
 
-/* Main wrapper */
-/* Contenedor principal para estructurar el contenido */
 .main-wrapper {
     flex: 1;
     display: flex;
@@ -20,26 +17,25 @@ body {
 }
 
 /* Header */
-/* Estilo para el encabezado de la página */
 .header {
-    background-color: #00006E;
-    color: #fff;
+    background-color: #FFFFFF;
+    color: #333333;
     text-align: center;
     padding: 1.5em 1em;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .header .logo {
     width: 80px;
     height: 80px;
-    border-radius: 50%; /* Hace que la imagen sea circular */
+    border-radius: 50%;
     margin-bottom: 1em;
 }
 
 .header h1 {
     font-size: 2.5em;
     margin: 0;
-    font-weight: 700; /* Negrita fuerte para el título */
+    font-weight: 700;
 }
 
 .header p {
@@ -48,7 +44,6 @@ body {
 }
 
 /* Main container */
-/* Contenedor principal para el contenido */
 .container {
     text-align: center;
     padding: 2em;
@@ -56,14 +51,14 @@ body {
 
 .container h2 {
     font-size: 2.2em;
-    color: #e8e8e8;
+    color: #333333;
     margin-bottom: 0.8em;
 }
 
 .container p {
     font-size: 1.2em;
     margin-bottom: 2em;
-    color: #d0d0d0;
+    color: #555555;
 }
 
 .buttons {
@@ -76,32 +71,28 @@ body {
 .button {
     font-size: 1.4em;
     padding: 0.8em 1.8em;
-    background-color: #00006E;
-    color: #fff;
-    border: 2px solid #ffffff !important;
-  box-sizing: border-box; /* Asegura que el borde se incluya en el tamaño */
-  -webkit-appearance: none; /* Evita estilos por defecto en Safari */
-  appearance: none;
+    background-color: #C8A165;
+    color: #FFFFFF;
+    border: none;
     border-radius: 12px;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.2); /* sombra blanca sutil */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
 .button:hover {
-    background-color: #000080; /* Color más oscuro al pasar el ratón */
-    transform: translateY(-2px); /* Efecto de elevación */
+    background-color: #A67C52;
+    transform: translateY(-2px);
 }
 
 .button:focus {
-    outline: 3px solid #FFD700;
+    outline: 3px solid #C8A165;
 }
 
-/* Status Message */
 .status-message {
     display: none;
     font-size: 1em;
-    background: linear-gradient(135deg, #007bff, #004085);
+    background: linear-gradient(135deg, #C8A165, #A67C52);
     color: #ffffff;
     padding: 0.8em;
     border-radius: 12px;
@@ -123,12 +114,11 @@ body {
 }
 
 .disabled-button {
-    background-color: gray !important;
+    background-color: #cccccc !important;
     cursor: not-allowed;
     opacity: 0.7;
 }
 
-/* Contenedor para widgets dinámicos */
 .widget-container {
     display: none;
     margin-top: 20px;
@@ -140,8 +130,8 @@ body {
 
 /* Footer */
 .footer {
-    background-color: #000040;
-    color: #ccc;
+    background-color: #F5F5F5;
+    color: #333333;
     text-align: center;
     padding: 1em 0;
     font-size: 0.9em;
@@ -152,7 +142,6 @@ body {
     margin-top: auto;
 }
 
-/* Footer content */
 .footer-content {
     display: flex;
     justify-content: space-between;
@@ -164,7 +153,6 @@ body {
     margin: 0;
 }
 
-/* Diseño responsivo para pantallas pequeñas */
 @media (max-width: 768px) {
     .header h1 {
         font-size: 2em;
@@ -178,7 +166,6 @@ body {
         font-size: 1.2em;
     }
 
-    /* Ajustes del pie de página para móviles */
     .footer {
         flex-direction: column;
         text-align: center;
@@ -210,14 +197,14 @@ body {
 }
 
 .popup-content {
-    background-color: #000040;
+    background-color: #FFFFFF;
     padding: 2em;
     border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     text-align: center;
     max-width: 400px;
     width: 90%;
-    color: #fff;
+    color: #333333;
     position: relative;
     animation: fadeIn 0.3s ease-out;
 }
@@ -225,11 +212,11 @@ body {
 .popup-content p {
     font-size: 1.2em;
     margin-bottom: 1.5em;
-    color: #f5f5f5;
+    color: #555555;
 }
 
 .popup-content button {
-    background-color: #1E3A8A; /* verde esmeralda */
+    background-color: #C8A165;
     color: #ffffff;
     font-weight: bold;
     padding: 0.6em 1.5em;
@@ -241,7 +228,7 @@ body {
 }
 
 .popup-content button:hover {
-    background-color: #4B5563; /* un verde más oscuro al hacer hover */
+    background-color: #A67C52;
 }
 
 @keyframes fadeIn {
@@ -259,6 +246,6 @@ body {
 .footer-link a:visited,
 .footer-link a:active,
 .footer-link a:focus {
-  color: #ffffff !important;
+  color: #333333 !important;
   text-decoration: underline;
 }

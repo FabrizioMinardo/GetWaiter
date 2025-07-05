@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const TELEGRAM_TOKEN = '7800730518:AAG2x11gxrhZQvDCjI6ITY4YTT7-uMLQP8Y';
-  const TELEGRAM_CHAT_IDS = ['7814346062']; 
+ const TELEGRAM_CHAT_IDS = ['6126902636'];
 
   const urlParams = new URLSearchParams(window.location.search);
   const tableNumber = urlParams.get('table') || 'Desconocida';
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sendTelegramMessage = async (message, statusMessage) => {
     const url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
 
-    try {
+    try {1
         for (const chatId of TELEGRAM_CHAT_IDS) {
             const response = await fetch(url, {
                 method: 'POST',
@@ -121,7 +121,7 @@ document.getElementById('instagram').addEventListener('click', () => {
 
 // MENÚ - Abrir PDF desde Google Drive
 document.getElementById('menu').addEventListener('click', () => {
-  window.open('https://drive.google.com/file/d/1iSIihOIpWmOW7IPoTu7nnu0CUCESRrDi/view', '_blank');
+  window.open('https://drive.google.com/file/d/1GRFWKZwBAyTIVFlm9thw0Jpf6n0S2HQl/view?usp=sharing', '_blank');
 });
 
 // AUSPICIANTES - Descargar PDF
