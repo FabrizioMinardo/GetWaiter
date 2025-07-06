@@ -40,10 +40,4 @@ Este es un sistema web diseñado para un Restaurante que permite a los clientes 
 
 - El personal recibirá la notificación y atenderá la solicitud.
 
-### 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT, lo que significa que puedes usarlo, modificarlo y distribuirlo libremente.
-
--------------------------------------------------------------------------------------------------------------------
-
 Desarrollado por Fabrizio Minardo.
