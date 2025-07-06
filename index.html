@@ -9,53 +9,50 @@
   <link rel="icon" href="Imagenes/logoselquet1.jpg" type="image/jpg" />
 </head>
 <body>
-  <div class="main-wrapper">
+  <!-- HEADER FUERA DEL CONTENEDOR -->
+  <header class="header fade-in-up">
+    <img src="Imagenes/logoselquet.jpg" alt="SELQUET" class="logo" />
+    <h1>SELQUET</h1>
+    <p>Restaurante Selquet + Bar</p>
 
-    <!-- HEADER -->
-    <header class="header fade-in-up">
-      <img src="Imagenes/logoselquet.jpg" alt="SELQUET" class="logo" />
-      <h1>SELQUET</h1>
-      <p>Restaurante Selquet + Bar</p>
+    <!-- Language Selector -->
+    <select id="lang-selector" class="lang-selector" aria-label="Selector de idioma">
+      <option value="es">Español</option>
+      <option value="en">English</option>
+    </select>
+  </header>
 
-      <!-- Language Selector -->
-      <select id="lang-selector" class="lang-selector" aria-label="Selector de idioma">
-        <option value="es">Español</option>
-        <option value="en">English</option>
-      </select>
-    </header>
+  <!-- MAIN CONTENEDOR CENTRAL -->
+  <main class="container fade-in-up">
+    <h2 data-i18n="welcome">¡Bienvenido!</h2>
+    <p data-i18n="instruction">Use los botones para solicitar atención.</p>
 
-    <!-- MAIN -->
-    <main class="container fade-in-up">
-      <h2 data-i18n="welcome">¡Bienvenido!</h2>
-      <p data-i18n="instruction">Use los botones para solicitar atención.</p>
+    <div class="buttons fade-in-up">
+      <p class="status-message"></p>
 
-      <div class="buttons fade-in-up">
-        <p class="status-message"></p>
+      <button id="call-waiter" class="button" data-i18n="callWaiter">🛎️ Llamar al mozo</button>
+      <button id="menu" class="button" data-i18n="viewMenu">📋 Menú</button>
+      <button id="wifi-info" class="button" data-i18n="freeWifi">📶 Wifi Gratuito</button>
+      <button id="request-bill" class="button" data-i18n="requestBill">💰 Pedir la cuenta</button>
+      <button id="instagram" class="button">Instagram</button>
+      <button id="leave-review" class="button" data-i18n="leaveReview">✍️ Dejar una opinión</button>
+    </div>
 
-        <button id="call-waiter" class="button" data-i18n="callWaiter">🛎️ Llamar al mozo</button>
-        <button id="menu" class="button" data-i18n="viewMenu">📋 Menú</button>
-        <button id="wifi-info" class="button" data-i18n="freeWifi">📶 Wifi Gratuito</button>
-        <button id="request-bill" class="button" data-i18n="requestBill">💰 Pedir la cuenta</button>
-        <button id="instagram" class="button">Instagram</button>
-        <button id="leave-review" class="button" data-i18n="leaveReview">✍️ Dejar una opinión</button>
+    <!-- POPUP WIFI -->
+    <div id="wifi-popup" class="popup">
+      <div class="popup-content blur-bg">
+        <p><strong>Red Wi-Fi:</strong> Selquet-WiFi</p>
+        <p>
+          <strong>Contraseña:</strong>
+          <span id="wifi-pass">selquet2025</span>
+          <button class="copy-btn" onclick="copyWifiPassword()">Copiar</button>
+        </p>
+        <button id="close-popup" class="button">Cerrar</button>
       </div>
+    </div>
+  </main>
 
-      <!-- POPUP WIFI -->
-      <div id="wifi-popup" class="popup">
-        <div class="popup-content blur-bg">
-          <p><strong>Red Wi-Fi:</strong> Selquet-WiFi</p>
-          <p>
-            <strong>Contraseña:</strong>
-            <span id="wifi-pass">selquet2025</span>
-            <button class="copy-btn" onclick="copyWifiPassword()">Copiar</button>
-          </p>
-          <button id="close-popup" class="button">Cerrar</button>
-        </div>
-      </div>
-    </main>
-  </div>
-
-  <!-- FOOTER -->
+  <!-- FOOTER FUERA DEL CONTENEDOR -->
   <footer class="footer fade-in-up">
     <div class="footer-content">
       <p class="left">&copy; 2025 Selquet - Todos los derechos reservados.</p>
