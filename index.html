@@ -1,56 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SELQUET RESTAURANT</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="Imagenes/logoselquet1.jpg" type="image/jpg">
-  </head>  
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SELQUET RESTAURANT</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="Imagenes/logoselquet1.jpg" type="image/jpg" />
+</head>
 <body>
   <div class="main-wrapper">
-    <header class="header">
-      <img src="Imagenes/logoselquet.jpg" alt="SELQUET" class="logo">
+
+    <!-- HEADER -->
+    <header class="header fade-in-up">
+      <img src="Imagenes/logoselquet.jpg" alt="SELQUET" class="logo" />
       <h1>SELQUET</h1>
       <p>Restaurante Selquet + Bar</p>
+
+      <!-- Language Selector -->
+      <select id="lang-selector" class="lang-selector" aria-label="Selector de idioma">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+      </select>
     </header>
 
-    <main class="container">
-      <h2>¡Bienvenido!</h2>
-      <p>Use los botones para solicitar atención.</p>
-      
-      <div class="buttons">
+    <!-- MAIN -->
+    <main class="container fade-in-up">
+      <h2 data-i18n="welcome">¡Bienvenido!</h2>
+      <p data-i18n="instruction">Use los botones para solicitar atención.</p>
+
+      <div class="buttons fade-in-up">
         <p class="status-message"></p>
-      
-        <button id="call-waiter" class="button">🛎️ Llamar al mozo</button>
-        <button id="menu" class="button">📋 Menú</button>
-        <button id="wifi-info" class="button"> - Wifi Gratuito -</button>
-        <button id="request-bill" class="button">💰 Pedir la cuenta</button>
-        <button id="sponsors" class="button">Auspiciantes</button>
-        <button id="instagram" class="button"> Instagram</button>
-        <button id="leave-review" class="button">✍️ Dejar una opinión</button>
+
+        <button id="call-waiter" class="button" data-i18n="callWaiter">🛎️ Llamar al mozo</button>
+        <button id="menu" class="button" data-i18n="viewMenu">📋 Menú</button>
+        <button id="wifi-info" class="button" data-i18n="freeWifi">📶 Wifi Gratuito</button>
+        <button id="request-bill" class="button" data-i18n="requestBill">💰 Pedir la cuenta</button>
+        <button id="instagram" class="button">Instagram</button>
+        <button id="leave-review" class="button" data-i18n="leaveReview">✍️ Dejar una opinión</button>
       </div>
-      
-      
+
       <!-- POPUP WIFI -->
       <div id="wifi-popup" class="popup">
-        <div class="popup-content">
-          <p>¡Escanea el código QR que se encuentra en la parte de atras de nuestro menú y accedé a Internet gratis!</p>
+        <div class="popup-content blur-bg">
+          <p><strong>Red Wi-Fi:</strong> Selquet-WiFi</p>
+          <p>
+            <strong>Contraseña:</strong>
+            <span id="wifi-pass">selquet2025</span>
+            <button class="copy-btn" onclick="copyWifiPassword()">Copiar</button>
+          </p>
           <button id="close-popup" class="button">Cerrar</button>
         </div>
       </div>
-      
-      <p id="status-message" class="status-message" style="display: none;"></p>
-
-      <div id="widget-container" class="widget-container"></div>
     </main>
   </div>
-  
 
-  <script src="Script.js"></script>
-
-  <footer class="footer"> 
+  <!-- FOOTER -->
+  <footer class="footer fade-in-up">
     <div class="footer-content">
       <p class="left">&copy; 2025 Selquet - Todos los derechos reservados.</p>
       <p class="right footer-link">
@@ -59,6 +65,9 @@
         </a>
       </p>
     </div>
-  </footer>  
+  </footer>
+
+  <audio id="ding-sound" src="sonidos/ding.mp3" preload="auto"></audio>
+  <script src="Script.js"></script>
 </body>
 </html>
