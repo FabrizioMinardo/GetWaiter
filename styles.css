@@ -9,6 +9,10 @@
 }
 
 /* === Estructura general === */
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
@@ -18,12 +22,15 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  width: 100%;
 }
 
 .main-wrapper {
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
 }
 
 /* === Animaciones === */
@@ -54,6 +61,7 @@ body {
   padding: 2em 1em 1.5em;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   position: relative;
+  width: 100%;
 }
 
 .header .logo {
@@ -118,11 +126,12 @@ body {
   flex-direction: column;
   gap: 1.5em;
   align-items: center;
+  width: 100%;
 }
 
 .button {
-  font-size: 1.2em;
-  padding: 0.8em 1.6em;
+  font-size: 1.3em;
+  padding: 1em 1.6em;
   background-color: var(--primary-bg);
   color: var(--accent);
   border: 2px solid var(--accent);
@@ -131,6 +140,8 @@ body {
   font-weight: bold;
   transition: all 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 400px;
 }
 
 .button:hover {
@@ -155,6 +166,8 @@ body {
   font-weight: bold;
   margin-bottom: 10px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
 }
 
 .status-message.show {
@@ -177,12 +190,16 @@ body {
   padding: 1.2em 1em;
   font-size: 0.9em;
   box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.05);
+  width: 100%;
 }
 
 .footer-content {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .footer .left,
@@ -250,16 +267,16 @@ body {
   }
 
   .button {
-    font-size: 1em;
-    padding: 0.7em 1.4em;
-  }
-
-  .footer {
-    flex-direction: column;
+    font-size: 1.1em;
+    padding: 0.8em 1.2em;
   }
 
   .footer-content {
     flex-direction: column;
     align-items: center;
+  }
+
+  .status-message {
+    font-size: 0.95em;
   }
 }
