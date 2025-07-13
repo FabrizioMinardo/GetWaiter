@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const TELEGRAM_TOKEN = '7559165473:AAEQoNX_H1V-l9IDRzYP_uSijGA4QLek6tc';
   const TELEGRAM_CHAT_IDS = ['6126902636'];
-  const SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyj2nECmPxB3vK6tPzmqOFy68zk126ZylJA2FqyOiqJ5g3rib2ivyO1-__yySw4bTlCWQ/exec';
+  const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScU8Cezs85ZNfHTLIGgBZ9K_oKLtS_IdEAiTq6RIVQkuyKNFg/formResponse';
 
   const tableNumber = new URLSearchParams(window.location.search).get('table') || 'Desconocida';
   const dingSound = document.getElementById('ding-sound');
@@ -39,22 +39,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  const logToSheet = async (mesa, accion) => {
-    try {
-      const res = await fetch(SHEET_WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          mesa: mesa,
-          accion: accion,
-          plataforma: 'GitHub Pages'
-        })
-      });
-      const text = await res.text();
-      console.log('✅ Registrado en hoja de cálculo:', text);
-    } catch (error) {
-      console.error('❌ Error al registrar en Google Sheets:', error);
-    }
+  const registrarEnFormulario = (mesa, accion, plataforma = 'GitHub') => {
+    const formData = new FormData();
+    formData.append("entry.572206663", mesa);
+    formData.append("entry.2082056723", accion);
+    formData.append("entry.403884290", plataforma);
+
+    fetch(FORM_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: formData
+    })
+    .then(() => console.log('✅ Datos enviados al formulario.'))
+    .catch(err => console.error('❌ Error al enviar al formulario:', err));
   };
 
   const showMessage = (msg) => {
@@ -80,8 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('request-bill').disabled = true;
       document.getElementById('request-bill').classList.add('disabled-button');
 
-      // Registrar en hoja
-      await logToSheet(tableNumber, accionLog);
+      registrarEnFormulario(tableNumber, accionLog);
 
     } catch (err) {
       alert('Error al enviar el mensaje.');
@@ -99,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sendTelegramMessage(
       `🛎️ *Mesa ${tableNumber} necesita un mozo.*`,
       '¡Gracias por avisar! El mozo pronto estará con usted.',
-      'Llamó al mozo'
+      'Llamar mozo'
     );
   });
 
@@ -107,18 +103,18 @@ document.addEventListener('DOMContentLoaded', () => {
     sendTelegramMessage(
       `🧾 *Mesa ${tableNumber} solicita la cuenta.*`,
       'El mozo pronto le traerá la cuenta.',
-      'Pidió la cuenta'
+      'Pedir cuenta'
     );
   });
 
   document.getElementById('menu').addEventListener('click', () => {
     window.open('https://drive.google.com/file/d/1GRFWKZwBAyTIVFlm9thw0Jpf6n0S2HQl/view?usp=sharing', '_blank');
-    logToSheet(tableNumber, 'Abrió el menú');
+    registrarEnFormulario(tableNumber, 'Abrió menú');
   });
 
   document.getElementById('leave-review').addEventListener('click', () => {
     window.open('https://maps.app.goo.gl/tds4n1LefDu3U9WF9', '_blank');
-    logToSheet(tableNumber, 'Dejó opinión');
+    registrarEnFormulario(tableNumber, 'Dejó opinión');
   });
 
   document.getElementById('instagram').addEventListener('click', () => {
@@ -140,12 +136,12 @@ document.addEventListener('DOMContentLoaded', () => {
       window.open('https://www.instagram.com/selquetrestaurantbar/', '_blank');
     }
 
-    logToSheet(tableNumber, 'Abrió Instagram');
+    registrarEnFormulario(tableNumber, 'Abrió Instagram');
   });
 
   document.getElementById('wifi-info').addEventListener('click', () => {
     document.getElementById('wifi-popup').style.display = 'flex';
-    logToSheet(tableNumber, 'Pidió WiFi');
+    registrarEnFormulario(tableNumber, 'Pidió WiFi');
   });
 
   document.getElementById('close-popup').addEventListener('click', () => {
