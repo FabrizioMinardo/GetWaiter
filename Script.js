@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const logToSheet = async (mesa, accion) => {
     try {
-      await fetch(SHEET_WEBHOOK_URL, {
+      const res = await fetch(SHEET_WEBHOOK_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -50,8 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
           plataforma: 'GitHub Pages'
         })
       });
+      const text = await res.text();
+      console.log('✅ Registrado en hoja de cálculo:', text);
     } catch (error) {
-      console.error('Error al registrar en Google Sheets:', error);
+      console.error('❌ Error al registrar en Google Sheets:', error);
     }
   };
 
@@ -60,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     statusElement.classList.add('show');
   };
 
-  const sendTelegramMessage = async (text, successMessage) => {
+  const sendTelegramMessage = async (text, successMessage, accionLog) => {
     try {
       for (const chatId of TELEGRAM_CHAT_IDS) {
         await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
@@ -77,6 +79,10 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('call-waiter').classList.add('disabled-button');
       document.getElementById('request-bill').disabled = true;
       document.getElementById('request-bill').classList.add('disabled-button');
+
+      // Registrar en hoja
+      await logToSheet(tableNumber, accionLog);
+
     } catch (err) {
       alert('Error al enviar el mensaje.');
       console.error(err);
@@ -92,17 +98,17 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('call-waiter').addEventListener('click', () => {
     sendTelegramMessage(
       `🛎️ *Mesa ${tableNumber} necesita un mozo.*`,
-      '¡Gracias por avisar! El mozo pronto estará con usted.'
+      '¡Gracias por avisar! El mozo pronto estará con usted.',
+      'Llamó al mozo'
     );
-    logToSheet(tableNumber, 'Llamó al mozo');
   });
 
   document.getElementById('request-bill').addEventListener('click', () => {
     sendTelegramMessage(
       `🧾 *Mesa ${tableNumber} solicita la cuenta.*`,
-      'El mozo pronto le traerá la cuenta.'
+      'El mozo pronto le traerá la cuenta.',
+      'Pidió la cuenta'
     );
-    logToSheet(tableNumber, 'Pidió la cuenta');
   });
 
   document.getElementById('menu').addEventListener('click', () => {
