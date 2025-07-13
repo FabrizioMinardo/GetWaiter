@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const TELEGRAM_TOKEN = '7559165473:AAEQoNX_H1V-l9IDRzYP_uSijGA4QLek6tc';
   const TELEGRAM_CHAT_IDS = ['6126902636'];
+  const SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyj2nECmPxB3vK6tPzmqOFy68zk126ZylJA2FqyOiqJ5g3rib2ivyO1-__yySw4bTlCWQ/exec';
+
   const tableNumber = new URLSearchParams(window.location.search).get('table') || 'Desconocida';
   const dingSound = document.getElementById('ding-sound');
   const statusElement = document.querySelector('.status-message');
@@ -37,15 +39,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  window.copyWifiPassword = () => {
-  const pass = document.getElementById('wifi-pass').innerText;
-  navigator.clipboard.writeText(pass)
-    .then(() => {
-      const btn = document.querySelector('.copy-btn');
-      btn.textContent = 'Copiado!';
-      setTimeout(() => { btn.textContent = 'Copiar'; }, 1500);
-    });
-};
+  const logToSheet = async (mesa, accion) => {
+    try {
+      await fetch(SHEET_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          mesa: mesa,
+          accion: accion,
+          plataforma: 'GitHub Pages'
+        })
+      });
+    } catch (error) {
+      console.error('Error al registrar en Google Sheets:', error);
+    }
+  };
 
   const showMessage = (msg) => {
     statusElement.innerHTML = `👋 Mesa ${tableNumber}<br>${msg}`;
@@ -86,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
       `🛎️ *Mesa ${tableNumber} necesita un mozo.*`,
       '¡Gracias por avisar! El mozo pronto estará con usted.'
     );
+    logToSheet(tableNumber, 'Llamó al mozo');
   });
 
   document.getElementById('request-bill').addEventListener('click', () => {
@@ -93,14 +102,17 @@ document.addEventListener('DOMContentLoaded', () => {
       `🧾 *Mesa ${tableNumber} solicita la cuenta.*`,
       'El mozo pronto le traerá la cuenta.'
     );
+    logToSheet(tableNumber, 'Pidió la cuenta');
   });
 
   document.getElementById('menu').addEventListener('click', () => {
     window.open('https://drive.google.com/file/d/1GRFWKZwBAyTIVFlm9thw0Jpf6n0S2HQl/view?usp=sharing', '_blank');
+    logToSheet(tableNumber, 'Abrió el menú');
   });
 
   document.getElementById('leave-review').addEventListener('click', () => {
     window.open('https://maps.app.goo.gl/tds4n1LefDu3U9WF9', '_blank');
+    logToSheet(tableNumber, 'Dejó opinión');
   });
 
   document.getElementById('instagram').addEventListener('click', () => {
@@ -121,13 +133,26 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       window.open('https://www.instagram.com/selquetrestaurantbar/', '_blank');
     }
+
+    logToSheet(tableNumber, 'Abrió Instagram');
   });
 
   document.getElementById('wifi-info').addEventListener('click', () => {
     document.getElementById('wifi-popup').style.display = 'flex';
+    logToSheet(tableNumber, 'Pidió WiFi');
   });
 
   document.getElementById('close-popup').addEventListener('click', () => {
     document.getElementById('wifi-popup').style.display = 'none';
   });
+
+  window.copyWifiPassword = () => {
+    const pass = document.getElementById('wifi-pass').innerText;
+    navigator.clipboard.writeText(pass)
+      .then(() => {
+        const btn = document.querySelector('.copy-btn');
+        btn.textContent = 'Copiado!';
+        setTimeout(() => { btn.textContent = 'Copiar'; }, 1500);
+      });
+  };
 });
