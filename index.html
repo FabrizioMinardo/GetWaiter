@@ -41,13 +41,13 @@
     <!-- POPUP WIFI -->
     <div id="wifi-popup" class="popup">
       <div class="popup-content blur-bg">
-        <p><strong>Red Wi-Fi:</strong> Selquet-WiFi</p>
+        <p><strong data-i18n="wifiNetworkLabel">Red Wi-Fi:</strong> <span id="wifi-network">Selquet-WiFi</span></p>
         <p>
-          <strong>Contraseña:</strong>
+          <strong data-i18n="wifiPasswordLabel">Contraseña:</strong>
           <span id="wifi-pass">selquet2025</span>
-          <button class="copy-btn" onclick="copyWifiPassword()">Copiar</button>
+          <button class="copy-btn" onclick="copyWifiPassword()" data-i18n="copyBtn">Copiar</button>
         </p>
-        <button id="close-popup" class="button">Cerrar</button>
+        <button id="close-popup" class="button" data-i18n="close">Cerrar</button>
       </div>
     </div>
   </main>

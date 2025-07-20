@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const tableNumber = new URLSearchParams(window.location.search).get('table') || 'Desconocida';
   const dingSound = document.getElementById('ding-sound');
   const statusElement = document.querySelector('.status-message');
-  const footerLeftElement = document.querySelector('.footer .left');
   const footerDevElement = document.getElementById('footer-dev');
 
   let currentLang = 'es';
@@ -26,6 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
       billMsg: 'El mozo pronto le traerá la cuenta.',
       footerCopyright: '© 2025 Selquet - Todos los derechos reservados.',
       footerDevelopedBy: 'Desarrollado por: Fabrizio Minardo',
+      wifiNetworkLabel: 'Red Wi-Fi:',
+      wifiPasswordLabel: 'Contraseña:',
+      copyBtn: 'Copiar',
     },
     en: {
       welcome: 'Welcome!',
@@ -41,16 +43,23 @@ document.addEventListener('DOMContentLoaded', () => {
       billMsg: 'A waiter will soon bring you the bill.',
       footerCopyright: '© 2025 Selquet - All rights reserved.',
       footerDevelopedBy: 'Developed by: Fabrizio Minardo',
+      wifiNetworkLabel: 'Wi-Fi Network:',
+      wifiPasswordLabel: 'Password:',
+      copyBtn: 'Copy',
     },
   };
 
   const setLanguage = (lang) => {
     currentLang = lang;
+    // Actualiza todos los elementos con data-i18n
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
-      el.textContent = translations[lang][key] || el.textContent;
+      if (translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
     });
 
+    // Actualizar footer desarrollado por
     footerDevElement.textContent = translations[lang].footerDevelopedBy;
   };
 
@@ -101,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // Listener para cambio de idioma
   document.getElementById('lang-selector').addEventListener('change', (e) => {
     setLanguage(e.target.value);
   });
@@ -169,8 +179,8 @@ document.addEventListener('DOMContentLoaded', () => {
     navigator.clipboard.writeText(pass)
       .then(() => {
         const btn = document.querySelector('.copy-btn');
-        btn.textContent = 'Copiado!';
-        setTimeout(() => { btn.textContent = 'Copiar'; }, 1500);
+        btn.textContent = translations[currentLang].copyBtn === 'Copiar' ? 'Copiado!' : 'Copied!';
+        setTimeout(() => { btn.textContent = translations[currentLang].copyBtn; }, 1500);
       });
   };
 });
