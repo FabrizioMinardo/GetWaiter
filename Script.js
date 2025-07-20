@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const tableNumber = new URLSearchParams(window.location.search).get('table') || 'Desconocida';
   const dingSound = document.getElementById('ding-sound');
   const statusElement = document.querySelector('.status-message');
+  const footerLeftElement = document.querySelector('.footer .left');
+  const footerDevElement = document.getElementById('footer-dev');
+
+  let currentLang = 'es';
 
   const translations = {
     es: {
@@ -18,6 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
       leaveReview: '✍️ Dejar una opinión',
       close: 'Cerrar',
       wifiInfo: '¡Escanea el código QR que se encuentra en la parte de atrás de nuestro menú y accedé a Internet gratis!',
+      waiterMsg: '¡Gracias por avisar! El mozo pronto estará con usted.',
+      billMsg: 'El mozo pronto le traerá la cuenta.',
+      footerCopyright: '© 2025 Selquet - Todos los derechos reservados.',
+      footerDevelopedBy: 'Desarrollado por: Fabrizio Minardo',
     },
     en: {
       welcome: 'Welcome!',
@@ -29,14 +37,21 @@ document.addEventListener('DOMContentLoaded', () => {
       leaveReview: '✍️ Leave a Review',
       close: 'Close',
       wifiInfo: 'Scan the QR code on the back of our menu to access free internet!',
+      waiterMsg: 'Thanks for notifying! A waiter will be with you shortly.',
+      billMsg: 'A waiter will soon bring you the bill.',
+      footerCopyright: '© 2025 Selquet - All rights reserved.',
+      footerDevelopedBy: 'Developed by: Fabrizio Minardo',
     },
   };
 
   const setLanguage = (lang) => {
+    currentLang = lang;
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       el.textContent = translations[lang][key] || el.textContent;
     });
+
+    footerDevElement.textContent = translations[lang].footerDevelopedBy;
   };
 
   const registrarEnFormulario = (mesa, accion, plataforma = 'GitHub') => {
@@ -55,11 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const showMessage = (msg) => {
-    statusElement.innerHTML = `👋 Mesa ${tableNumber}<br>${msg}`;
+    const mesaText = currentLang === 'en' ? 'Table' : 'Mesa';
+    statusElement.innerHTML = `👋 ${mesaText} ${tableNumber}<br>${msg}`;
     statusElement.classList.add('show');
   };
 
-  const sendTelegramMessage = async (text, successMessage, accionLog) => {
+  const sendTelegramMessage = async (text, messageKey, accionLog) => {
     try {
       for (const chatId of TELEGRAM_CHAT_IDS) {
         await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
@@ -70,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (dingSound) dingSound.play();
-      showMessage(successMessage);
+      showMessage(translations[currentLang][messageKey]);
 
       document.getElementById('call-waiter').disabled = true;
       document.getElementById('call-waiter').classList.add('disabled-button');
@@ -94,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('call-waiter').addEventListener('click', () => {
     sendTelegramMessage(
       `🛎️ *Mesa ${tableNumber} necesita un mozo.*`,
-      '¡Gracias por avisar! El mozo pronto estará con usted.',
+      'waiterMsg',
       'Llamar mozo'
     );
   });
@@ -102,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('request-bill').addEventListener('click', () => {
     sendTelegramMessage(
       `🧾 *Mesa ${tableNumber} solicita la cuenta.*`,
-      'El mozo pronto le traerá la cuenta.',
+      'billMsg',
       'Pedir cuenta'
     );
   });
