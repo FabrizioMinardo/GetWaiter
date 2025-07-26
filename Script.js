@@ -1,3 +1,9 @@
+/*
+  Copyright © 2025 Fabrizio Gabriel Bustos Minardo
+  Obra registrada en DNDA – Exp. EX-2025-81431364
+  Todos los derechos reservados.
+*/
+
 document.addEventListener('DOMContentLoaded', () => {
   const TELEGRAM_TOKEN = '7559165473:AAEQoNX_H1V-l9IDRzYP_uSijGA4QLek6tc';
   const TELEGRAM_CHAT_IDS = ['6126902636'];
