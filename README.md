@@ -12,17 +12,19 @@ Este es un sistema web diseñado para un Restaurante que permite a los clientes 
 
 - 💰 Pedir la cuenta: Notifica al mozo que la mesa desea pagar.
 
+- 📋 Menú: Ver el menu en formato PDF desde el navegador.
+
 - ✍️ Dejar una opinión: Redirige al usuario al perfil del restaurante en Google Maps para calificarlo y dejar una reseña.
 
-- 📲 Acceder al Wifi gratuito.
+- 📶 Wifi Gratuito: Acceder al Wifi gratuito.
 
-- 📷 Visitar el Instagram del restaurante.
-
-- Las calificaciones del perfil de Google del restaurante se muestran en la página.
+- 📸 Instagram: Redirije al instagram del restaurante.
 
 ### 🛠️ Tecnologías Utilizadas
 
 - HTML5, CSS3 y JavaScript para la estructura, diseño e interactividad.
+
+- Google Script para almacenar las accion y generar estadisticas en una hoja de calculo de Google.
 
 - Google Fonts para mejorar la tipografía.
 
