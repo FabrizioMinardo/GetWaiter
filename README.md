@@ -42,13 +42,14 @@ Este es un sistema web diseñado para un Restaurante que permite a los clientes 
 
 - El personal recibirá la notificación y atenderá la solicitud.
 
-## 🛡️ Derechos de autor
+## 🛡️ Derechos de Autor y Propiedad Intelectual
 
-Este software ha sido registrado como obra inédita ante la Dirección Nacional del Derecho de Autor (DNDA), bajo el expediente:
+Todos los derechos reservados © Fabrizio Gabriel Bustos Minardo, 2025.
 
-**RE-2025-81430022-APN-DNDA#MJ**  
-Autor: **Fabrizio Gabriel Bustos Minardo**
+Este proyecto fue registrado y depositado como obra inédita ante la Dirección Nacional del Derecho de Autor (DNDA), Argentina, bajo el número de expediente **RE-2025-81430022-APN-DNDA#MJ**.
 
-Queda prohibido el uso, reproducción, distribución o modificación del presente código sin autorización expresa del autor.
+Queda expresamente prohibido el uso, copia, distribución, modificación o reproducción total o parcial del presente código fuente sin la autorización escrita del autor.
 
-© 2025 – Todos los derechos reservados.
+No se otorga ninguna licencia de uso. Todo uso no autorizado será considerado una infracción a los derechos de autor conforme a la legislación vigente.
+
+Para consultas o permisos, por favor contactarse a través de GitHub o medios oficiales.
