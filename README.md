@@ -42,4 +42,13 @@ Este es un sistema web diseñado para un Restaurante que permite a los clientes 
 
 - El personal recibirá la notificación y atenderá la solicitud.
 
-Desarrollado por Fabrizio Minardo.
+## 🛡️ Derechos de autor
+
+Este software ha sido registrado como obra inédita ante la Dirección Nacional del Derecho de Autor (DNDA), bajo el expediente:
+
+**RE-2025-81430022-APN-DNDA#MJ**  
+Autor: **Fabrizio Gabriel Bustos Minardo**
+
+Queda prohibido el uso, reproducción, distribución o modificación del presente código sin autorización expresa del autor.
+
+© 2025 – Todos los derechos reservados.
