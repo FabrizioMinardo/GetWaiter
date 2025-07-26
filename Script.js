@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const tableNumber = new URLSearchParams(window.location.search).get('table') || 'Desconocida';
   const dingSound = document.getElementById('ding-sound');
   const statusElement = document.querySelector('.status-message');
-  const footerDevElement = document.getElementById('footer-dev');
+  const footerDevElement = document.querySelector('.footer-link a');
 
   let currentLang = 'es';
 
