@@ -2,7 +2,7 @@
 
 ## 📌 Descripción
 
-Este es un sistema web diseñado para un Restaurante que permite a los clientes solicitar atención de un mozo, pedir la cuenta y dejar una opinión fácilmente desde su mesa a través de un botón interactivo. El cliente escanea el codigo QR de la mesa y lo redirige a la pagina del restaurant para realizar su solicitud.
+Este es un sistema web diseñado para un Restaurante que permite a los clientes solicitar atención de un mozo, pedir la cuenta y dejar una opinión fácilmente desde su mesa a través de botones interactivos. El cliente escanea el codigo QR de la mesa y lo redirige a la pagina del restaurant para realizar su solicitud.
 
 ### Sitio en funcionamiento: https://fabriziominardo.github.io/ugab/
 
@@ -24,7 +24,7 @@ Este es un sistema web diseñado para un Restaurante que permite a los clientes 
 
 - HTML5, CSS3 y JavaScript para la estructura, diseño e interactividad.
 
-- Google Script para almacenar las accion y generar estadisticas en una hoja de calculo de Google.
+- Google Script para almacenar las acciones y generar estadisticas en una hoja de calculo de Google.
 
 - Google Fonts para mejorar la tipografía.
 
@@ -41,6 +41,8 @@ Este es un sistema web diseñado para un Restaurante que permite a los clientes 
 - Se enviará un mensaje al bot de Telegram con la solicitud y el número de mesa.
 
 - El personal recibirá la notificación y atenderá la solicitud.
+
+- Las acciones del usuario se guardaran en hojas de calculo de Google.
 
 ## ⚠️ Derechos de Autor
 
