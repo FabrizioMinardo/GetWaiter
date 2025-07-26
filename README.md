@@ -44,12 +44,17 @@ Este es un sistema web diseñado para un Restaurante que permite a los clientes 
 
 ## ⚠️ Derechos de Autor
 
-Este proyecto fue registrado legalmente como **obra inédita - software** en la Dirección Nacional del Derecho de Autor (Argentina) bajo el expediente:
+Este proyecto fue legalmente registrado como **obra inédita - software** en la Dirección Nacional del Derecho de Autor (Argentina), bajo el expediente:
 
 **📄 EX-2025-81431364- -APN-DNDA#MJ**
 
-Queda prohibida la reproducción, uso o modificación total o parcial sin la autorización expresa del autor, conforme a la Ley N° 11.723.
+🔒 Este software está protegido por derechos de autor.  
+No se permite su copia, reproducción, modificación o uso comercial sin el consentimiento por escrito del autor.
 
-🔒 **Este código está protegido por derechos de autor. No se permite su copia, distribución ni reutilización sin consentimiento.**
+**Autor:** Fabrizio Gabriel Bustos Minardo  
+**Registro:** DNDA - Argentina  
+**Fecha de inscripción:** 26/07/2025
 
-Para licencias o consultas, podés contactar al autor directamente.
+Cualquier uso indebido podrá ser sancionado legalmente según la Ley N° 11.723.
+
+📧 Contacto: (agregá tu mail si querés permitir contacto)
