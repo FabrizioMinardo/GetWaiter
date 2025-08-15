@@ -2,7 +2,7 @@
 
 ## 📌 Descripción
 
-Este es un sistema web diseñado para un Restaurante que permite a los clientes solicitar atención de un mozo, pedir la cuenta y dejar una opinión fácilmente desde su mesa a través de botones interactivos. El cliente escanea el codigo QR de la mesa y lo redirige a la pagina del restaurant para realizar su solicitud.
+Este es un sistema web diseñado para Restaurantes que permite a los clientes solicitar atención de un mozo, pedir la cuenta y dejar una opinión fácilmente desde su mesa a través de botones interactivos. El cliente escanea el codigo QR de la mesa y lo redirige a la pagina del restaurant para realizar su solicitud.
 
 ### Sitio en funcionamiento: https://fabriziominardo.github.io/ugab/
 
@@ -18,7 +18,7 @@ Este es un sistema web diseñado para un Restaurante que permite a los clientes 
 
 - 📶 Wifi Gratuito: Acceder al Wifi gratuito.
 
-- 📸 Instagram: Redirije al instagram del restaurante.
+- 📸 Instagram: Redirige al instagram del restaurante.
 
 ### 🛠️ Tecnologías Utilizadas
 
