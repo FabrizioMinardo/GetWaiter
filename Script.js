@@ -7,7 +7,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const TELEGRAM_TOKEN = '7559165473:AAEQoNX_H1V-l9IDRzYP_uSijGA4QLek6tc';
-  const TELEGRAM_CHAT_IDS = ['6126902636'];
+  const TELEGRAM_CHAT_IDS = ['6126902636' , '8264556398' ];
   const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScU8Cezs85ZNfHTLIGgBZ9K_oKLtS_IdEAiTq6RIVQkuyKNFg/formResponse';
 
   const tableNumber = new URLSearchParams(window.location.search).get('table') || 'Desconocida';
